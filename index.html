@@ -225,6 +225,22 @@
         font-weight: bold;
         font-size: 16px;
     }
+     .hero-img img {
+        width: 450px;
+        height: 450px;
+        object-fit: cover; /* This prevents the photo from stretching */
+        border-radius: 24px;
+        border: 3px solid #310062;
+        background: #e0d7ee; /* Fallback color while loading */
+    }
+
+
+    @media (max-width: 1024px) {
+        .hero-img img {
+            width: 300px;
+            height: 300px;
+        }
+    }
 
 </style>
 </head>
@@ -297,5 +313,6 @@
 
 </body>
 </html>
+
 
 
