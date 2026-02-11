@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Java Challenge | Jose Gabriel Yu</title>
     <style>
-
+        /* 1. Global Styles */
         body {
             margin: 0;
             padding: 0;
@@ -18,9 +18,11 @@
             line-height: 1.9;
         }
 
+
+        /* 2. Header Style - Explicitly Centered */
         header {
             padding: 100px 10% 40px 10%;
-            text-align: center; 
+            text-align: center; /* This centers the H1, P, and Divider */
         }
 
 
@@ -37,16 +39,15 @@
 
 
         header p {
-            margin: 25px auto 0 auto;
-            max-width: 900px;
+            margin: 25px auto 0 auto; /* Centers the paragraph block */
             font-size: 14px;
             color: #4B0082;
             text-transform: uppercase;
             letter-spacing: 6px;
             font-weight: 800;
-            text-align: center;
+            display: block;
+            text-align: center; /* Centers the text inside the block */
         }
-
 
 
         header p b {
@@ -54,31 +55,16 @@
             letter-spacing: 4px;
         }
 
-        main h2 {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 28px;
-            color: #310062;
-            margin: 40px 0 15px 0;
-            line-height: 1.2;
-        }
-
-        main h2::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: #6a4c93;
-            margin-top: 10px;
-        }
-
 
         .divider {
             width: 80px;
             height: 5px;
             background: #FFD700;
-            margin: 30px auto; 
+            margin: 30px auto; /* Centers the yellow line */
         }
 
+
+        /* 3. Main Content Container */
         main {
             padding: 60px 8%;
             max-width: 800px;
@@ -97,6 +83,8 @@
             color: #333;
         }
 
+
+        /* 4. Navigation Button */
         .back-nav {
             text-align: center;
             margin-bottom: 80px;
@@ -133,46 +121,81 @@
             color: #310062;
             font-weight: bold;
         }
-.top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: white;
-    border-bottom: 3px solid #4B0082;
-    padding: 16px 8%;
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-}
 
-.top-nav a {
-    text-decoration: none;
-    color: #310062;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    padding: 8px 14px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
 
-.top-nav a:hover {
-    background: #310062;
-    color: white;
-    transform: translateY(-2px);
-}
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            border-bottom: 3px solid #4B0082;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+        }
 
-</style>
+
+
+
+        .top-nav a {
+            text-decoration: none;
+            color: #310062;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+
+
+
+        .top-nav a:hover {
+            background: #310062;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        .blog-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0d7ee;
+            border: 2px dashed #4B0082;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #310062;
+            font-weight: bold;
+            overflow: hidden; /* Ensures image stays in bounds */
+        }
+
+
+        .blog-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 
+
 <body>
+
+
 <nav class="top-nav">
     <a href="index.html">Home</a>
     <a href="template.html">Portfolio</a>
     <a href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
+    <a href="gallery.html">Gallery</a>
 </nav>
+
 
 <header>
     <h1>The Java Challenge: <br><span>Patience and Discipline</span></h1>
@@ -182,36 +205,38 @@
 
 
 <main>
-
-    <h2>First Encounters with Java</h2>
+        <div class="blog-image-placeholder">
+         <a href="blogs-pt3.png" target="_self" class="gallery-item">
+                <img src="blogs-pt3.png" alt="Picture">
+    </div>
     <p>
         Every programmer has a favorite programming language, and at the same time, something they dislike about it. For me, that language is Java. I both love and hate Java because it constantly challenges me. Java is one of the most important and versatile programming languages in the current digital era, as many companies and businesses rely on it for their systems, websites, and applications. Learning Java pushed me to understand programming at a deeper level, even when it felt overwhelming.
     </p>
 
-    <h2>Learning Discipline Through Code</h2>
+
     <p>
         I love Java because it taught me discipline. When I first started learning it, nothing felt simple. Every class, method, and syntax rule forced me to slow down and truly understand what I was writing. Java did not allow me to take shortcuts, and because of that, it trained me to think logically and carefully. Each successful program I wrote felt like a personal achievement, as if I had earned every line of code through effort and persistence.
     </p>
+
 
     <p>
         At the same time, Java can be overwhelming. There were many moments when I felt frustrated because a small mistake could cause my entire program to fail. Writing long lines of code for simple tasks sometimes made me question why I chose Java in the first place. Compared to other languages, Java often feels strict and demanding, which can be discouraging, especially when progress feels slow. These moments made me both hate Java and doubt my own abilities as a programmer.
     </p>
 
+
     <p>
         However, those struggles are also the reason Java holds a special place for me. Every challenge I overcame made me more confident, not just in Java, but in my problem-solving skills. Java taught me patience, resilience, and how to handle failure. Once I started understanding its logic, learning other programming languages felt less intimidating because Java had already trained my mindset.
     </p>
 
-    <h2>Lessons That Go Beyond Java</h2>
+
     <p>
         In conclusion, my experience with Java has taught me more than just how to write code. It showed me the importance of patience, discipline, and perseverance in learning something difficult. Although Java often frustrated me, those challenges pushed me to grow and improve as a programmer. My personal takeaway is that struggling is part of the learning process, and mastering something hard makes future challenges easier to face. Moving forward, I plan to continue improving my Java skills while using the strong foundation it gave me to explore other programming languages with confidence.
     </p>
-
 </main>
 
 
-
 <div class="back-nav">
-    <a href="template.html" class="back-btn">← Back to Portfolio Hub</a>
+    <a href="index.html" class="back-btn">← Back to Portfolio Hub</a>
 </div>
 
 
