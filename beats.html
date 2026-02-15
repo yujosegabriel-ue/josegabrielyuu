@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Beats | Jose Gabriel Yu</title>
+
+<style>
+/* --- Base Styles --- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background-color: #f4f1f8;
+    background-image: linear-gradient(#e0d7ee 1.5px, transparent 1.5px),
+                      linear-gradient(90deg, #e0d7ee 1.5px, transparent 1.5px);
+    background-size: 60px 60px;
+    color: #2d2d2d;
+    scroll-behavior: smooth;
+}
+
+/* --- Global Top Nav --- */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    background: white;
+    border-bottom: 3px solid #4B0082;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-weight: 900;
+    color: #310062;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.top-nav-links a {
+    text-decoration: none;
+    color: #310062;
+    font-weight: 800;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.top-nav-links a:hover { color: #FFD700; }
+
+/* --- Enhanced Bigger Header --- */
+.hero-header {
+    padding: 160px 10% 80px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 70px 50px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid white;
+    box-shadow: 0 40px 80px rgba(75, 0, 130, 0.12);
+    max-width: 1000px;
+}
+
+.hero-header h1 {
+    font-size: clamp(60px, 12vw, 120px);
+    color: #310062;
+    margin: 0;
+    font-family: "Georgia", serif;
+    letter-spacing: -4px;
+    line-height: 0.9;
+}
+
+.hero-header .subtitle {
+    font-size: 18px;
+    color: #4B0082;
+    margin: 25px 0 40px;
+    font-weight: 800;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.intro-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #4B0082;
+    margin: 0 auto 40px;
+    max-width: 850px;
+}
+
+.page-nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-btn {
+    flex: 1;
+    max-width: 250px;
+    text-decoration: none;
+    background: #310062;
+    color: white;
+    padding: 22px;
+    border-radius: 60px;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(49, 0, 98, 0.2);
+    border: 2px solid #310062;
+}
+
+.nav-btn.secondary {
+    background: white;
+    color: #310062;
+    border: 2px solid #310062;
+}
+
+.nav-btn:hover {
+    transform: translateY(-8px);
+    background: #FFD700;
+    color: #310062;
+    border-color: #FFD700;
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+}
+
+/* --- Artist Content Sections --- */
+main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px 5% 100px;
+}
+
+.artist-section {
+    margin-top: 100px;
+    background: white;
+    border-radius: 40px;
+    padding: 60px;
+    border: 1px solid #e0d7ee;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.profile-img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 30px;
+    border: 1px solid #eee;
+}
+
+.profile-info h2 {
+    font-size: 45px;
+    color: #310062;
+    margin: 0 0 20px 0;
+}
+
+.profile-info p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* --- Song Grid & Cards --- */
+.section-label {
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #FFD700;
+    margin-bottom: 40px;
+    background: #310062;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 11px;
+}
+
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.song-card {
+    background: #fbfaff;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.song-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.song-card img { width: 100%; height: 280px; object-fit: cover; }
+.song-details { padding: 25px; flex-grow: 1; }
+.song-details h3 { margin: 0; color: #310062; font-size: 22px; }
+.song-meta { font-size: 11px; font-weight: bold; color: #4B0082; display: block; margin: 8px 0; opacity: 0.7; }
+
+/* Favorite Reason Box */
+.fav-reason {
+    background: #f0ebf7;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #310062;
+    border-left: 4px solid #FFD700;
+}
+
+.fav-reason strong { color: #4B0082; text-transform: uppercase; font-size: 11px; display: block; margin-bottom: 5px; }
+
+audio { width: 100%; height: 35px; margin-top: 15px; }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 80px;
+    background: white;
+    border-top: 2px solid #eee;
+}
+
+@media (max-width: 800px) {
+    .profile-area { flex-direction: column; text-align: center; }
+    .page-nav-container { flex-direction: column; align-items: center; }
+    .nav-btn { width: 100%; }
+    .hero-header { padding: 100px 5% 40px; }
+    .hero-card { padding: 40px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top-nav">
+    <div class="logo">JG</div>
+    <div class="top-nav-links">
+        <a href="index.html">Home</a>
+        <a href="template.html">Portfolio</a>
+        <a href="projects.html">Projects</a>
+    </div>
+</nav>
+
+<header class="hero-header" id="top">
+    <div class="hero-card">
+        <h1>My Beats</h1>
+        <p class="subtitle">The Essential Collection</p>
+        
+        <div class="intro-text">
+            <p>Welcome to <strong>My Beats</strong>, a personal digital jukebox showcasing the soundtracks of my creative life. Music is the rhythm behind every line of code and every design I build. This collection features my definitive Top 5 tracks from the industry's most influential titans: <strong>Chris Brown</strong> and <strong>Drake</strong>.</p>
+        </div>
+
+        <div class="page-nav-container">
+            <a href="#chrisbrown" class="nav-btn">Chris Brown</a>
+            <a href="#drake" class="nav-btn secondary">Drake</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <section class="artist-section" id="chrisbrown">
+        <div class="profile-area">
+            <img src="chris-brown-portrait.jpg" alt="Chris Brown" class="profile-img">
+            <div class="profile-info">
+                <h2>Chris Brown</h2>
+                <p>Commonly referred to as the "King of R&B," Chris Brown has built a legacy on unparalleled performance and vocal versatility. Since his 2005 debut, he has redefined the genre by blending soulful R&B with pop and hip-hop, amassing a record-breaking number of hits and influencing a whole generation of artists.</p>
+            </div>
+        </div>
+
+        <center><span class="section-label">Top 5 Picks</span></center>
+        
+        <div class="song-grid">
+            <div class="song-card">
+                <img src="residuals.jpg" alt="Residuals">
+                <div class="song-details">
+                    <h3>Residuals</h3>
+                    <span class="song-meta">11:11 | 2023 | R&B</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> The vocal layering in this track is incredible. It’s my go-to late-night song because it perfectly captures a moody, introspective R&B atmosphere.
+                    </div>
+                    <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="grassaintgreener.jpg" alt="Grass Ain't Greener">
+                <div class="song-details">
+                    <h3>Grass Ain't Greener</h3>
+                    <span class="song-meta">Heartbreak on a Full Moon | 2017</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> This is a classic "toxic R&B" anthem. The production is dark and hypnotic, making it a standout from the massive Heartbreak on a Full Moon album.
+                    </div>
+                    <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="wgftremix.jpg" alt="WGFT Remix">
+                <div class="song-details">
+                    <h3>WGFT (Remix)</h3>
+                    <span class="song-meta">R&B / Collaboration</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> I love the smooth, collaborative energy here. It’s one of those tracks where the harmonies are so clean you can listen to it on loop while working.
+                    </div>
+                    <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="gocrazy.jpg" alt="Go Crazy">
+                <div class="song-details">
+                    <h3>Go Crazy</h3>
+                    <span class="song-meta">Slime & B | 2020 | Hip-Hop</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> Pure energy. This song stayed at the top of my charts because the beat is so infectious—it’s impossible not to move when this comes on.
+                    </div>
+                    <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="angelnumbers.jpg" alt="Angel Numbers">
+                <div class="song-details">
+                    <h3>Angel Numbers / Ten Toes</h3>
+                    <span class="song-meta">11:11 | 2023 | R&B</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> I appreciate the transition in this track. It feels like two different moods combined into one masterpiece, showing how much Chris has evolved.
+                    </div>
+                    <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="artist-section" id="drake">
+        <div class="profile-area">
+            <img src="drake-portrait.jpg" alt="Drake" class="profile-img">
+            <div class="profile-info">
+                <h2>Drake</h2>
+                <p>The architect of the modern streaming era, Drake has redefined the sound of global music. By fusing vulnerable storytelling with aggressive rap anthems, he has created a sound that is uniquely his own, serving as a cultural bridge across continents and genres.</p>
+            </div>
+        </div>
+
+        <center><span class="section-label">Top 5 Picks</span></center>
+
+        <div class="song-grid">
+            <div class="song-card">
+                <img src="timeflies.jpg" alt="Time Flies">
+                <div class="song-details">
+                    <h3>Time Flies</h3>
+                    <span class="song-meta">Dark Lane Demo Tapes | 2020</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> This is peak "lo-fi" Drake. It’s the ultimate chill song for coding; the mellow production helps me focus without distracting from the task.
+                    </div>
+                    <audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="passionfruit.jpg" alt="Passionfruit">
+                <div class="song-details">
+                    <h3>Passionfruit</h3>
+                    <span class="song-meta">More Life | 2017 | R&B</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> The tropical, dancehall-inspired rhythm makes this an all-time summer favorite. It’s timeless, lighthearted, and always feels fresh.
+                    </div>
+                    <audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="unforgettable.png" alt="Unforgettable">
+                <div class="song-details">
+                    <h3>Unforgettable</h3>
+                    <span class="song-meta">Thank Me Later | 2018</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> This track brings back great memories. The melody is catchy, and it captures that early era of Drake’s global dominance perfectly.
+                    </div>
+                    <audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="headlines.jpg" alt="Headlines">
+                <div class="song-details">
+                    <h3>Headlines</h3>
+                    <span class="song-meta">Take Care | 2011 | Hip-Hop</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> A total nostalgia trip. This was Drake at his most confident, and the beat still sounds iconic over a decade later.
+                    </div>
+                    <audio controls><source src="headlines.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+            <div class="song-card">
+                <img src="bestthingieverhad.jpg" alt="Best Thing I Ever Had">
+                <div class="song-details">
+                    <h3>Best Thing I Ever Had</h3>
+                    <span class="song-meta">Thank Me Later | 2018</span>
+                    <div class="fav-reason">
+                        <strong>Personal Vibe:</strong> I love the mix of storytelling and rap here. It’s a great example of Drake’s ability to talk about personal relationships in a way that’s relatable.
+                    </div>
+                    <audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio>
+                </div>
+            </div>
+        </div>
+        <center><a href="#top" style="text-decoration:none; color:#4B0082; font-weight:bold; font-size:12px; margin-top:40px; display:inline-block;">↑ BACK TO TOP</a></center>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Jose Gabriel Yu | The Yu Files
+</footer>
+
+</body>
+</html>
