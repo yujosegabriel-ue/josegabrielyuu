@@ -95,7 +95,6 @@
         max-width: 850px;
     }
 
-    /* --- Identical Buttons --- */
     .page-nav-container {
         display: flex;
         justify-content: center;
@@ -122,11 +121,9 @@
         transform: translateY(-8px);
         background: #FFD700;
         color: #310062;
-        border-color: #FFD700;
-        box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
     }
 
-    /* --- Content Sections --- */
+    /* --- Sections --- */
     main {
         max-width: 1250px;
         margin: auto;
@@ -140,33 +137,6 @@
         padding: 60px;
         border: 1px solid #e0d7ee;
         box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-    }
-
-    .profile-area {
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        margin-bottom: 50px;
-    }
-
-    .profile-img {
-        width: 280px;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 30px;
-        border: 1px solid #eee;
-    }
-
-    .profile-info h2 {
-        font-size: 45px;
-        color: #310062;
-        margin: 0 0 20px 0;
-    }
-
-    .profile-info p {
-        font-size: 17px;
-        line-height: 1.8;
-        color: #555;
     }
 
     .section-label {
@@ -197,15 +167,28 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        transition: 0.3s;
     }
 
     .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        transition: 0.3s;
     }
 
-    .card img { width: 100%; height: 280px; object-fit: cover; }
+    /* Music covers fit perfectly */
+    .card img { 
+        width: 100%; 
+        height: 320px; 
+        object-fit: contain; 
+        background: #f0f0f0; 
+    }
+
+    /* Movie/TV posters fit tall and big */
+    .poster-card img {
+        height: 480px; 
+        object-fit: cover;
+    }
+
     .card-body { padding: 25px; flex-grow: 1; }
     .card-body h3 { margin: 0; color: #310062; font-size: 22px; }
     .song-meta { font-size: 11px; font-weight: bold; color: #4B0082; display: block; margin: 8px 0; opacity: 0.7; }
@@ -228,7 +211,6 @@
     footer { text-align: center; padding: 40px; color: #4B0082; background: white; border-top: 1px solid #eee; }
 
     @media (max-width: 800px) {
-        .profile-area { flex-direction: column; text-align: center; }
         .hero-header { padding: 100px 5% 40px; }
         .hero-card { padding: 40px 20px; }
     }
@@ -249,11 +231,9 @@
     <div class="hero-card">
         <h1>The Collection</h1>
         <p class="subtitle">Soundtracks & Stories</p>
-        
         <div class="intro-text">
-            <p>Welcome to my digital gallery. This is where I curate the sounds and stories that keep me inspired. Explore my top picks across music, film, and television below.</p>
+            <p>Welcome to my digital gallery. Explore my definitive top picks across music, film, and television below.</p>
         </div>
-
         <div class="page-nav-container">
             <a href="#music" class="nav-btn">Music</a>
             <a href="#movies" class="nav-btn">Movies</a>
@@ -264,81 +244,63 @@
 
 <main>
     <section class="artist-section" id="music">
-        <div class="profile-area">
-            <img src="chris-brown-portrait.jpg" alt="Chris Brown" class="profile-img">
-            <div class="profile-info">
-                <h2>Chris Brown</h2>
-                <p>Commonly referred to as the "King of R&B," his artistry combines incredible vocal control with a unique ability to set a specific mood through sound.</p>
-            </div>
-        </div>
-
         <center><span class="section-label">Chris Brown Picks</span></center>
-        
         <div class="grid">
             <div class="card">
-                <img src="residuals.jpg" alt="Residuals">
+                <img src="residuals.jpg">
                 <div class="card-body">
                     <h3>Residuals</h3>
-                    <span class="song-meta">11:11 | 2023 | R&B</span>
+                    <span class="song-meta">11:11 | 2023</span>
                     <div class="vibe-box"><strong>Why I Love It:</strong> The atmosphere of this track is incredibly chill. It is my go-to song for winding down after a long day.</div>
-                    <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
+                    <audio controls><source src="residuals.mp3"></audio>
                 </div>
             </div>
             <div class="card">
-                <img src="grassaintgreener.jpg" alt="Grass Ain't Greener">
+                <img src="grassaintgreener.jpg">
                 <div class="card-body">
                     <h3>Grass Ain't Greener</h3>
                     <span class="song-meta">Heartbreak on a Full Moon | 2017</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> I appreciate the moodier, darker side of R&B. The production is immersive and helps me maintain deep focus while working.</div>
-                    <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> I appreciate the moodier, darker side of R&B. The production is immersive and helps me maintain deep focus.</div>
+                    <audio controls><source src="grassaintgreener.mp3"></audio>
                 </div>
             </div>
             <div class="card">
-                <img src="wgftremix.jpg" alt="WGFT">
+                <img src="wgft.jpg">
                 <div class="card-body">
                     <h3>WGFT (Remix)</h3>
                     <span class="song-meta">R&B / Collaboration</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> The energy of this collaboration is smooth. It is a simple yet effective track that never gets old even on repeat.</div>
-                    <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> The energy of this collaboration is incredibly smooth. It never gets old even on repeat.</div>
+                    <audio controls><source src="wgft.mp3"></audio>
                 </div>
             </div>
             <div class="card">
-                <img src="gocrazy.jpg" alt="Go Crazy">
+                <img src="gocrazy.jpg">
                 <div class="card-body">
                     <h3>Go Crazy</h3>
-                    <span class="song-meta">Slime & B | 2020 | Hip-Hop</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> A high-energy hype track! The beat provides an instant boost of motivation whenever I need to get moving.</div>
-                    <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
+                    <span class="song-meta">Slime & B | 2020</span>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> A high-energy hype track! The beat provides an instant boost of motivation whenever I need it.</div>
+                    <audio controls><source src="gocrazy.mp3"></audio>
                 </div>
             </div>
             <div class="card">
-                <img src="angelnumbers.jpg" alt="Angel Numbers">
+                <img src="angelnumbers.jpg">
                 <div class="card-body">
                     <h3>Angel Numbers</h3>
-                    <span class="song-meta">11:11 | 2023 | R&B</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> The transition between musical styles in this song is masterful. It feels like a complete journey within a single track.</div>
-                    <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
+                    <span class="song-meta">11:11 | 2023</span>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> The transition between musical styles is masterful. It feels like a complete journey within one song.</div>
+                    <audio controls><source src="angelnumbers.mp3"></audio>
                 </div>
             </div>
         </div>
 
-        <div class="profile-area" style="margin-top: 80px;">
-            <img src="drake-portrait.jpg" alt="Drake" class="profile-img">
-            <div class="profile-info">
-                <h2>Drake</h2>
-                <p>The architect of the modern streaming era. Drake's unique fusion of vulnerable storytelling and aggressive rap anthems makes his sound unmistakable.</p>
-            </div>
-        </div>
-
-        <center><span class="section-label">Drake Picks</span></center>
-
+        <center><span class="section-label" style="margin-top: 80px;">Drake Picks</span></center>
         <div class="grid">
             <div class="card">
                 <img src="timeflies.jpg">
                 <div class="card-body">
                     <h3>Time Flies</h3>
                     <span class="song-meta">Dark Lane Demo Tapes | 2020</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> The ultimate lo-fi vibe. This is one of my favorite tracks to have playing in the background while I am coding.</div>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> The ultimate lo-fi vibe. This is one of my favorite tracks to have playing while I am coding.</div>
                     <audio controls><source src="timeflies.mp3"></audio>
                 </div>
             </div>
@@ -352,11 +314,11 @@
                 </div>
             </div>
             <div class="card">
-                <img src="unforgettable.png">
+                <img src="unforgettable.jpg">
                 <div class="card-body">
                     <h3>Unforgettable</h3>
                     <span class="song-meta">Thank Me Later | 2018</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> Highly nostalgic. Even years after its release, the melody remains just as catchy and recognizable.</div>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> Highly nostalgic. Even years after its release, the melody remains just as catchy.</div>
                     <audio controls><source src="unforgettable.mp3"></audio>
                 </div>
             </div>
@@ -365,41 +327,39 @@
                 <div class="card-body">
                     <h3>Headlines</h3>
                     <span class="song-meta">Take Care | 2011</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> Bold, sharp, and confident. This is the definitive track that made me a long-time fan of Drake's work.</div>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> Bold, sharp, and confident. This is the definitive track that made me a long-time fan.</div>
                     <audio controls><source src="headlines.mp3"></audio>
                 </div>
             </div>
             <div class="card">
-                <img src="bestthingieverhad.jpg">
+                <img src="bestthing.jpg">
                 <div class="card-body">
                     <h3>Best Thing I Ever Had</h3>
                     <span class="song-meta">Thank Me Later | 2018</span>
                     <div class="vibe-box"><strong>Why I Love It:</strong> Excellent storytelling. Relatable lyrics perfectly balanced with a solid, consistent rhythm.</div>
-                    <audio controls><source src="bestthingieverhad.mp3"></audio>
+                    <audio controls><source src="bestthing.mp3"></audio>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="artist-section" id="movies">
-        <center><span class="section-label">My Movies</span></center>
+        <center><span class="section-label">Cinema Selection</span></center>
         <div class="grid">
-            <div class="card">
-                <img src="whiplash.jpeg" alt="Whiplash">
+            <div class="card poster-card">
+                <img src="whiplash.jpg">
                 <div class="card-body">
                     <h3>Whiplash</h3>
-                    <span class="song-meta">Drama | Dir. Damien Chazelle</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> Incredibly intense. The tension and passion displayed are inspiring, pushing you to excel in your craft.</div>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?si=R-FaMGYJxH4gesyv&amp;start=89" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> Intense and inspiring. The tension and passion shown push you to excel in your craft.</div>
+                    <iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?si=R-FaMGYJxH4gesyv&amp;start=89" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="card">
-                <img src="howtolose.jpg" alt="How to Lose a Guy">
+            <div class="card poster-card">
+                <img src="howtolose.jpg">
                 <div class="card-body">
                     <h3>How to Lose a Guy in 10 Days</h3>
-                    <span class="song-meta">Romance/Comedy | 2003</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> A true comfort movie. The chemistry between the leads is fantastic, making it a classic rom-com.</div>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?si=1fp82kvvwHqVDKNj&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> A true comfort movie. The chemistry between the leads is fantastic and classic.</div>
+                    <iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?si=1fp82kvvwHqVDKNj&amp;start=4" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -408,22 +368,20 @@
     <section class="artist-section" id="tv">
         <center><span class="section-label">TV Shows</span></center>
         <div class="grid">
-            <div class="card">
-                <img src="b99.jpg" alt="B99">
+            <div class="card poster-card">
+                <img src="b99.jpg">
                 <div class="card-body">
                     <h3>Brooklyn Nine-Nine</h3>
-                    <span class="song-meta">Comedy | NBC</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> Pure lighthearted fun. It features an incredible ensemble cast and consistently delivers laughs in every episode.</div>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?si=wh0WFi8PIaD5KSVT&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> Pure lighthearted fun. Best ensemble cast that delivers laughs in every single episode.</div>
+                    <iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?si=wh0WFi8PIaD5KSVT&amp;start=4" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
-            <div class="card">
-                <img src="himym.jpg" alt="HIMYM">
+            <div class="card poster-card">
+                <img src="himym.jpg">
                 <div class="card-body">
                     <h3>How I Met Your Mother</h3>
-                    <span class="song-meta">Comedy/Drama | CBS</span>
-                    <div class="vibe-box"><strong>Why I Love It:</strong> A legendary show that balances humor with genuine life lessons. A great journey about friendship and the search for "the one."</div>
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o?si=h7VI2o4baNgbP6lp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="vibe-box"><strong>Why I Love It:</strong> A legendary show that balances humor with genuine life lessons about friendship.</div>
+                    <iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o?si=h7VI2o4baNgbP6lp" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -435,6 +393,3 @@
 
 </body>
 </html>
-
-
-
