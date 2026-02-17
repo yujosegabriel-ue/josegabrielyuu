@@ -30,43 +30,37 @@
     }
 
 
- nav {
+ .top-nav {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 3px solid #310062;
-    padding: 16px 8%;
+    z-index: 2000;
+    background: white;
+    border-bottom: 3px solid #4B0082;
+    padding: 15px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-logo {
-    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+.logo {
     font-weight: 900;
     color: #310062;
-    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
 }
 
-.nav-links a {
+.top-nav-links a {
     text-decoration: none;
     color: #310062;
-    font-weight: 700;
-    font-size: 15px;
-    margin-left: 30px;
+    font-weight: 800;
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 14px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    margin-left: 20px;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    background: #310062;
-    color: white;
-    transform: translateY(-2px);
-}
+.top-nav-links a:hover { color: #FFD700; }
 
 @media (max-width: 768px) {
     nav {
@@ -314,6 +308,7 @@
 
 </body>
 </html>
+
 
 
 
