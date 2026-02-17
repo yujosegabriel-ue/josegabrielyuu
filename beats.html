@@ -16,6 +16,7 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ===== NAV ===== */
 .top-nav {
     position: sticky;
     top: 0;
@@ -26,7 +27,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo {
@@ -49,10 +49,10 @@ body {
 
 .top-nav-links a:hover { color: #FFD700; }
 
+/* ===== HERO HEADER ===== */
 .hero-header {
     padding: 160px 10% 80px;
     text-align: center;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
 }
 
 .hero-card {
@@ -93,11 +93,16 @@ body {
     text-align: justify;
 }
 
+/* ===== NAV BUTTONS ===== */
 .page-nav-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 40px; /* space between buttons */
     flex-wrap: wrap;
+}
+
+.nav-item {
+    text-align: center; /* center description under button */
 }
 
 .nav-btn {
@@ -112,6 +117,7 @@ body {
     transition: 0.4s;
     box-shadow: 0 10px 20px rgba(49, 0, 98, 0.2);
     border: 2px solid #310062;
+    display: inline-block;
 }
 
 .nav-btn:hover {
@@ -120,6 +126,13 @@ body {
     color: #310062;
 }
 
+.nav-desc {
+    font-size: 12px;
+    color: #4B0082;
+    margin-top: 4px;
+}
+
+/* ===== MAIN CONTENT ===== */
 main {
     max-width: 1250px;
     margin: auto;
@@ -227,9 +240,10 @@ footer { text-align: center; padding: 40px; color: #4B0082; background: white; b
 </head>
 <body>
 
-<nav>
-    <div class="nav-logo">JG</div>
-    <div class="nav-links">
+<!-- ===== NAV ===== -->
+<nav class="top-nav">
+    <div class="logo">JG</div>
+    <div class="top-nav-links">
         <a href="index.html">Home</a>
         <a href="template.html">Portfolio</a>
         <a href="projects.html">Projects</a>
@@ -247,79 +261,198 @@ footer { text-align: center; padding: 40px; color: #4B0082; background: white; b
 <div class="intro-text">
 <p>Welcome to my digital gallery. Explore my definitive top picks across music, film, and television below. Each section offers insight into my personal favorites, with descriptions that explain why these selections hold special meaning.</p>
 </div>
+
+<!-- ===== CENTERED NAV BUTTONS WITH DESCRIPTIONS ===== -->
 <div class="page-nav-container">
-<a href="#music" class="nav-btn">Music</a>
-<a href="#movies" class="nav-btn">Movies</a>
-<a href="#tv" class="nav-btn">TV Shows</a>
+    <div class="nav-item">
+        <a href="#music" class="nav-btn">Music</a>
+        <div class="nav-desc">Discover my top songs and favorite artists</div>
+    </div>
+
+    <div class="nav-item">
+        <a href="#movies" class="nav-btn">Movies</a>
+        <div class="nav-desc">Explore films that inspire me</div>
+    </div>
+
+    <div class="nav-item">
+        <a href="#tv" class="nav-btn">TV Shows</a>
+        <div class="nav-desc">Check out the series I love watching</div>
+    </div>
 </div>
+
 </div>
 </header>
 
 <main>
 
+<!-- ===== MUSIC ===== -->
 <section class="artist-section" id="music">
+    <center><span class="section-label">Top 5 Chris Brown</span></center>
+    <div class="artist-header">
+        <img src="chris-brown-portrait.jpg" alt="Chris Brown">
+        <p>Chris Brown’s versatility stands out the most to me. From R&B ballads to high-energy tracks, his ability to adapt to different genres and styles keeps his music engaging. Each song has a story, whether it's about love, heartbreak, or celebration, making his work deeply relatable yet entertaining.</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <img src="residuals.jpg" alt="Residuals">
+            <div class="card-body">
+                <h3>Residuals</h3>
+                <span class="song-meta">11:11 | 2023 | R&B</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> This track immerses you in a calming, ambient soundscape with soft percussion and Chris’s smooth vocals. Perfect for reflecting at the end of a long day, it combines modern production with emotional depth, allowing listeners to feel both introspective and uplifted.</div>
+                <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
-<center><span class="section-label">Top 5 Chris Brown</span></center>
+        <div class="card">
+            <img src="grassaintgreener.jpg" alt="Grass Ain't Greener">
+            <div class="card-body">
+                <h3>Grass Ain't Greener</h3>
+                <span class="song-meta">Heartbreak on a Full Moon | 2017</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Dark and moody, this track captures the feelings of jealousy, longing, and reflection. The layered production, with its echoing synths and steady beat, makes it hypnotic, while the lyrics are raw and relatable for anyone who's experienced complicated relationships.</div>
+                <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
-<div class="artist-header">
-<img src="chris-brown-portrait.jpg">
-<p>
-Chris Brown’s versatility stands out the most to me. He seamlessly moves between heartfelt R&B ballads and high-energy anthems, often blending genres in ways that keep the listener engaged. His voice carries both emotion and rhythm, making each track feel personal yet universally relatable. Over the years, his musical evolution has introduced a wide palette of sounds—from smooth, chill tracks that help me unwind, to infectious, upbeat tunes that energize my day. These five songs capture the essence of his artistry and showcase the depth, creativity, and consistency that make him one of my all-time favorites.
-</p>
-</div>
+        <div class="card">
+            <img src="wgftremix.jpg" alt="WGFT Remix">
+            <div class="card-body">
+                <h3>WGFT (Remix)</h3>
+                <span class="song-meta">R&B Collaboration</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> A high-energy remix blending smooth harmonies and catchy rhythms. The song’s dynamic flow and addictive hooks make it perfect for both chill listening and hyped-up moments. Chris’s vocal runs shine through, demonstrating his technical skill and versatility.</div>
+                <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
-<div class="grid">
-<!-- Chris Brown Songs -->
-<div class="card"><img src="residuals.jpg"><div class="card-body"><h3>Residuals</h3><span class="song-meta">11:11 | 2023 | R&B</span><div class="vibe-box"><strong>Why I Love It:</strong> The atmosphere is incredibly chill and immersive. Perfect for relaxing after a long day.</div><audio controls><source src="residuals.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="grassaintgreener.jpg"><div class="card-body"><h3>Grass Ain't Greener</h3><span class="song-meta">Heartbreak on a Full Moon | 2017</span><div class="vibe-box"><strong>Why I Love It:</strong> Dark, moody production that keeps me focused and locked in.</div><audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="wgftremix.jpg"><div class="card-body"><h3>WGFT (Remix)</h3><span class="song-meta">R&B Collaboration</span><div class="vibe-box"><strong>Why I Love It:</strong> Smooth energy and addictive replay value.</div><audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="gocrazy.jpg"><div class="card-body"><h3>Go Crazy</h3><span class="song-meta">Slime & B | 2020</span><div class="vibe-box"><strong>Why I Love It:</strong> Instant hype and motivation every time.</div><audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="angelnumbers.jpg"><div class="card-body"><h3>Angel Numbers</h3><span class="song-meta">11:11 | 2023</span><div class="vibe-box"><strong>Why I Love It:</strong> Feels like a full musical journey in one track.</div><audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio></div></div>
-</div>
+        <div class="card">
+            <img src="gocrazy.jpg" alt="Go Crazy">
+            <div class="card-body">
+                <h3>Go Crazy</h3>
+                <span class="song-meta">Slime & B | 2020</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> This track radiates joy and energy. Its upbeat rhythm, playful lyrics, and vibrant instrumentation make it impossible not to move to. It’s the perfect song to lift your mood and get into a party-ready mindset, showcasing Chris’s ability to craft infectious tracks.</div>
+                <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
-<center><span class="section-label" style="margin-top:80px;">Top 5 Drake</span></center>
+        <div class="card">
+            <img src="angelnumbers.jpg" alt="Angel Numbers">
+            <div class="card-body">
+                <h3>Angel Numbers</h3>
+                <span class="song-meta">11:11 | 2023</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Evocative and dreamy, this track feels like a journey. The intricate melodies, layered harmonies, and reflective lyrics combine to create a full emotional experience. It’s the type of song that stays with you, resonating long after you’ve stopped listening.</div>
+                <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+    </div>
 
-<div class="artist-header">
-<img src="drake-portrait.jpg">
-<p>
-Drake’s artistry is unique in the way it blends introspection, clever wordplay, and melodic sensibility. His music often feels deeply personal yet resonates universally, capturing moods ranging from reflective melancholy to confident swagger. He experiments with a variety of sounds, from lo-fi, chill tracks to bold, rhythm-driven anthems. These five tracks demonstrate his ability to craft songs that stick with you, whether through infectious melodies, memorable hooks, or emotional storytelling. Listening to Drake feels like tapping into a musical diary where each song has a story, a vibe, and a connection to real life.
-</p>
-</div>
+    <!-- ===== Drake ===== -->
+    <center><span class="section-label" style="margin-top:80px;">Top 5 Drake</span></center>
+    <div class="artist-header">
+        <img src="drake-portrait.jpg" alt="Drake">
+        <p>Drake’s music is an artful mix of introspection, clever wordplay, and catchy melodies. His storytelling captures universal experiences while feeling personal, and his evolution as an artist shows in the diversity of his tracks. These songs highlight his ability to craft memorable hooks, emotional depth, and beats that resonate with a wide audience.</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <img src="timeflies.jpg" alt="Time Flies">
+            <div class="card-body">
+                <h3>Time Flies</h3>
+                <span class="song-meta">Dark Lane Demo Tapes | 2020</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Smooth, minimalist production paired with reflective lyrics make this track perfect for introspection. It has a calming yet moving energy, exploring time, relationships, and the fleeting nature of life. Drake’s flow balances effortlessly between rap and melodic storytelling.</div>
+                <audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
-<div class="grid">
-<!-- Drake Songs -->
-<div class="card"><img src="timeflies.jpg"><div class="card-body"><h3>Time Flies</h3><span class="song-meta">Dark Lane Demo Tapes | 2020</span><div class="vibe-box"><strong>Why I Love It:</strong> Minimal, smooth, and perfect while coding.</div><audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="passionfruit.jpg"><div class="card-body"><h3>Passionfruit</h3><span class="song-meta">More Life | 2017</span><div class="vibe-box"><strong>Why I Love It:</strong> Pure summer vibe and endlessly replayable.</div><audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="unforgettable.png"><div class="card-body"><h3>Unforgettable</h3><span class="song-meta">Thank Me Later | 2018</span><div class="vibe-box"><strong>Why I Love It:</strong> Nostalgic melody that never fades.</div><audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="headlines.jpg"><div class="card-body"><h3>Headlines</h3><span class="song-meta">Take Care | 2011</span><div class="vibe-box"><strong>Why I Love It:</strong> Confident anthem that defined an era.</div><audio controls><source src="headlines.mp3" type="audio/mpeg"></audio></div></div>
-<div class="card"><img src="bestthingieverhad.jpg"><div class="card-body"><h3>Best Thing I Ever Had</h3><span class="song-meta">Thank Me Later | 2018</span><div class="vibe-box"><strong>Why I Love It:</strong> Strong storytelling and energy balance.</div><audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio></div></div>
-</div>
+        <div class="card">
+            <img src="passionfruit.jpg" alt="Passionfruit">
+            <div class="card-body">
+                <h3>Passionfruit</h3>
+                <span class="song-meta">More Life | 2017</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> This track exudes a tropical, laid-back feel. Its melodic structure, soothing beats, and smooth vocals make it ideal for relaxing or reflecting on relationships. It’s endlessly replayable due to its calm energy and hypnotic rhythm.</div>
+                <audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
 
+        <div class="card">
+            <img src="unforgettable.png" alt="Unforgettable">
+            <div class="card-body">
+                <h3>Unforgettable</h3>
+                <span class="song-meta">Thank Me Later | 2018</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> A nostalgic, rhythmic track that balances rap and melody. Drake’s vocals paired with the catchy beat create a song that is both memorable and emotionally resonant, perfect for reminiscing or uplifting moments.</div>
+                <audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="headlines.jpg" alt="Headlines">
+            <div class="card-body">
+                <h3>Headlines</h3>
+                <span class="song-meta">Take Care | 2011</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Confident, self-reflective, and memorable. The track is an anthem of personal growth and resilience, combining clever lyricism with an instantly recognizable beat that defines Drake’s early style.</div>
+                <audio controls><source src="headlines.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="bestthingieverhad.jpg" alt="Best Thing I Ever Had">
+            <div class="card-body">
+                <h3>Best Thing I Ever Had</h3>
+                <span class="song-meta">Thank Me Later | 2018</span>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Combines romantic storytelling with a smooth, catchy melody. The song reflects on love, appreciation, and moments of connection, showcasing Drake’s ability to make songs that resonate emotionally and musically.</div>
+                <audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+    </div>
 </section>
 
+<!-- ===== MOVIES ===== -->
 <section class="artist-section" id="movies">
-<center><span class="section-label">Cinema Selection</span></center>
-<div class="grid">
-<div class="card poster-card"><img src="whipplash.jpg"><div class="card-body"><h3>Whiplash</h3><div class="vibe-box"><strong>Why I Love It:</strong> The intensity and raw emotion of Whiplash are unparalleled. The dynamic between student and mentor is both inspiring and unsettling, pushing you to reflect on the price of ambition and the pursuit of excellence. The film’s tension, combined with phenomenal musical sequences, makes it not just a movie but a visceral experience that leaves a lasting impression on anyone passionate about art, dedication, or personal growth.</div><iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?start=89" allowfullscreen></iframe></div></div>
+    <center><span class="section-label">Cinema Selection</span></center>
+    <div class="grid">
+        <div class="card poster-card">
+            <img src="whipplash.jpg" alt="Whiplash">
+            <div class="card-body">
+                <h3>Whiplash</h3>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Whiplash is a gripping story of ambition, perfection, and obsession. The intense relationship between teacher and student challenges ethical boundaries and personal limits. Its dynamic cinematography, heart-pounding music sequences, and psychological depth create a cinematic experience that is unforgettable.</div>
+                <iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?start=89" allowfullscreen></iframe>
+            </div>
+        </div>
 
-<div class="card poster-card"><img src="howtolose.jpg"><div class="card-body"><h3>How to Lose a Guy in 10 Days</h3><div class="vibe-box"><strong>Why I Love It:</strong> This rom-com is a delightful mix of humor, romance, and clever storytelling. The chemistry between the leads makes every scene engaging, and the witty dialogue keeps you laughing throughout. Beyond the laughs, it’s a charming exploration of love, strategy, and the often unpredictable nature of relationships. I always find it comforting and uplifting, making it a perfect go-to movie when I want to feel happy and lighthearted.</div><iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?start=4" allowfullscreen></iframe></div></div>
-</div>
+        <div class="card poster-card">
+            <img src="howtolose.jpg" alt="How to Lose a Guy in 10 Days">
+            <div class="card-body">
+                <h3>How to Lose a Guy in 10 Days</h3>
+                <div class="vibe-box"><strong>Why I Love It:</strong> This romantic comedy is a perfect balance of humor and charm. Watching the clever strategies unfold between the leads is entertaining, while the underlying romance keeps you invested. Its witty dialogue and situational comedy make it a timeless, feel-good movie.</div>
+                <iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?start=4" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 </section>
 
+<!-- ===== TV SHOWS ===== -->
 <section class="artist-section" id="tv">
-<center><span class="section-label">TV Shows</span></center>
-<div class="grid">
-<div class="card poster-card"><img src="b99.jpg"><div class="card-body"><h3>Brooklyn Nine-Nine</h3><div class="vibe-box"><strong>Why I Love It:</strong> Brooklyn Nine-Nine perfectly blends humor with heart, delivering both laugh-out-loud moments and genuinely touching scenes. The ensemble cast has impeccable timing, and the clever writing ensures every character shines. It’s a show I return to for comfort, entertainment, and sheer fun—its witty humor never gets old, and the recurring themes of friendship, loyalty, and teamwork make it feel more than just a comedy.</div><iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?start=4" allowfullscreen></iframe></div></div>
+    <center><span class="section-label">TV Shows</span></center>
+    <div class="grid">
+        <div class="card poster-card">
+            <img src="b99.jpg" alt="Brooklyn Nine-Nine">
+            <div class="card-body">
+                <h3>Brooklyn Nine-Nine</h3>
+                <div class="vibe-box"><strong>Why I Love It:</strong> A smart comedy blending humor with meaningful moments. Each character is distinct and memorable, and the series consistently balances slapstick comedy with heartfelt storylines about teamwork, loyalty, and friendship. Its clever writing and strong ensemble cast make it endlessly rewatchable.</div>
+                <iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?start=4" allowfullscreen></iframe>
+            </div>
+        </div>
 
-<div class="card poster-card"><img src="himym.jpg"><div class="card-body"><h3>How I Met Your Mother</h3><div class="vibe-box"><strong>Why I Love It:</strong> A timeless show that balances humor, emotion, and life lessons beautifully. The storytelling and character development make each episode meaningful while still being hilarious. It’s more than a comedy—it’s a journey about friendship, love, and the unpredictability of life. Watching it always gives me nostalgia, laughter, and reflection, which is why it remains one of my top TV favorites.</div><iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o" allowfullscreen></iframe></div></div>
-</div>
+        <div class="card poster-card">
+            <img src="himym.jpg" alt="How I Met Your Mother">
+            <div class="card-body">
+                <h3>How I Met Your Mother</h3>
+                <div class="vibe-box"><strong>Why I Love It:</strong> Balances humor, emotional depth, and character-driven storytelling. Following Ted’s journey to find love, the series explores friendship, life lessons, and personal growth. Its clever twists, running gags, and emotional payoff make it one of the most enduring sitcoms of its time.</div>
+                <iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 </section>
 
 </main>
 
 <footer>© 2026 Jose Gabriel Yu | The Yu Files</footer>
-
 </body>
 </html>
-
-
