@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Destinations | Jose Gabriel Yu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+    /* Pure CSS Smooth Scrolling */
+    html { scroll-behavior: smooth; }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8f7ff;
+        /* Blueprint Grid Aesthetic */
+        background-image: 
+            radial-gradient(circle at top right, rgba(224, 215, 238, 0.5), transparent 40%),
+            radial-gradient(circle at bottom left, rgba(244, 241, 248, 0.5), transparent 40%),
+            linear-gradient(#e0d7ee 1.5px, transparent 1.5px),
+            linear-gradient(90deg, #e0d7ee 1.5px, transparent 1.5px);
+        background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+        color: #1a1a1a;
+        line-height: 1.8;
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 30px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(75, 0, 130, 0.05);
+    }
+
+    .nav-logo { font-weight: 800; color: #310062; font-size: 22px; text-decoration: none; }
+    .nav-links a { text-decoration: none; color: #4a4a4a; font-weight: 600; font-size: 13px; margin-left: 20px; }
+
+    /* --- SIDE-ALIGNED HEADER --- */
+    header {
+        padding: 180px 80px 32px;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    header h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: 64px;
+        line-height: 1.05;
+        margin: 0;
+        color: #310062;
+        font-weight: 400;
+    }
+
+    header p {
+        margin: 15px 0 0;
+        color: #6a5aa3;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+
+    .rule { height: 3px; width: 72px; background: #FFD700; margin: 20px 0 0; }
+
+    /* --- LEGACY HERO / MISSION --- */
+    .legacy-hero {
+        max-width: 980px;
+        margin: 40px auto 60px;
+        padding: 60px;
+        background: #310062;
+        border-radius: 40px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(49, 0, 98, 0.2);
+    }
+
+    .legacy-hero h2 { font-family: 'Instrument Serif', serif; font-size: 42px; margin-bottom: 20px; }
+    .legacy-hero p { max-width: 700px; margin: 0 auto; font-size: 18px; opacity: 0.9; }
+
+    /* --- VISION BOARD MAP --- */
+    .vision-board-container {
+        max-width: 1100px;
+        margin: 0 auto 80px;
+        padding: 20px;
+        background: white;
+        border-radius: 40px;
+        border: 1px solid #e0d7ee;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    .vision-board-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 20px;
+    }
+
+    /* --- BUCKET LIST CONTENT --- */
+    main {
+        max-width: 1100px;
+        margin: 0 auto 80px;
+        padding: 60px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 40px;
+        border: 1px solid #e0d7ee;
+    }
+
+    .bucket-row {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 40px;
+        padding: 40px 0;
+        border-bottom: 1px solid #e0d7ee;
+    }
+
+    .bucket-row:last-child { border-bottom: none; }
+
+    .goal-title { font-family: 'Instrument Serif', serif; font-size: 28px; color: #310062; }
+    .goal-title span { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; color: #FFD700; margin-bottom: 10px; letter-spacing: 3px; text-transform: uppercase; }
+
+    .goal-explanation { font-size: 17px; color: #444; text-align: justify; }
+
+    /* --- FOOTER --- */
+    .back-nav { text-align: center; margin-bottom: 100px; }
+    .back-btn { background: #FFD700; color: #310062; padding: 16px 35px; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block; text-transform: uppercase; font-size: 13px; }
+
+    footer { text-align: center; padding: 80px; background: white; color: #310062; font-weight: 800; border-top: 1px solid #e0d7ee; }
+
+    .sticky-top {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        background: var(--primary-purple);
+        color: white;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        z-index: 1000;
+    }
+
+    @media (max-width: 850px) {
+        .bucket-row { grid-template-columns: 1fr; gap: 15px; }
+        header { padding: 140px 40px 40px; }
+    }
+</style>
+</head>
+
+<body id="top">
+
+<nav>
+    <a href="index.html" class="nav-logo">JG</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="dreamplaces.html">Dream Places</a>
+        <a href="bucketlist.html">Bucketlist</a>
+        <a href="mailto:yu.josegabriel@ue.edu.ph">Contact</a>
+    </div>
+</nav>
+
+<header>
+    <h1>Dream Places</h1>
+    <p>Jose Gabriel Yu | 2026 Exploration Board</p>
+    <div class="rule"></div>
+</header>
+
+<div class="legacy-hero">
+    <h2>The Blueprint Legacy</h2>
+    <p>This isn't just a list of things to tick off. It's the blueprint for the life I’m actually building—one fueled by the discipline I've learned in tech and the gratitude I carry for where I started. Every one of these goals is a step toward the man I’m working to become.</p>
+</div>
+
+<div class="vision-board-container">
+    <img src="dreampage.png" usemap="#visionmap" alt="2026 Vision Board">
+    <map name="visionmap">
+        <area shape="rect" coords="180,190,380,420" href="#goal-01" alt="Vigan City">
+        <area shape="rect" coords="20,380,330,680" href="#goal-11" alt="Batanes">
+        <area shape="rect" coords="610,640,880,900" href="#goal-05" alt="Paris">
+        <area shape="circle" coords="500,170,130" href="#goal-05" alt="Great Wall of China">
+        <area shape="circle" coords="600,300,100" href="#goal-10" alt="Shibuya Crossing">
+        <area shape="rect" coords="650,430,870,640" href="#goal-05" alt="Sagrada Familia">
+        <area shape="rect" coords="150,680,420,950" href="#goal-05" alt="El Nido">
+    </map>
+</div>
+
+<main>
+    <div class="bucket-container">
+        
+        <div class="bucket-row" id="goal-01">
+            <div class="goal-title"><span>01. CULTURAL ROOTS</span>Explore Ilocos Heritage</div>
+            <div class="goal-explanation">Exploring the beaches and heritage spots of Ilocos is about connecting with history. Seeing how ancient structures have stood the test of time provides a unique perspective on "building to last"—whether it's stone architecture or digital infrastructure.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-02">
+            <div class="goal-title"><span>02. FINANCIAL FREEDOM</span>Millionaire by 30</div>
+            <div class="goal-explanation">Achieving this through smart habits and financial discipline provides the "runway" to take bigger risks in my tech career. It's a testament to long-term planning and mastering investment logic.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-03">
+            <div class="goal-title"><span>03. EMOTIONAL ANCHOR</span>Find Greatest Love</div>
+            <div class="goal-explanation">Building a healthy, lasting relationship provides the emotional stability needed to face the high-pressure environment of the tech industry. It’s about finding a partner to share the journey.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-04">
+            <div class="goal-title"><span>04. ULTIMATE GRATITUDE</span>Buy Mama a House</div>
+            <div class="goal-explanation">The primary motivation behind my hard work. It is a way to honor the roots that supported me while I was busy growing my wings in technology, ensuring comfort and security for my family.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-05">
+            <div class="goal-title"><span>05. GLOBAL PERSPECTIVE</span>Travel to Five Countries</div>
+            <div class="goal-explanation">In tech, we build for a global audience. Traveling provides cultural empathy, teaching me how different people solve problems—from the Great Wall to the Eiffel Tower—which makes me a more versatile Software Engineer.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-06">
+            <div class="goal-title"><span>06. TECHNICAL IMPACT</span>Launch a Tech Startup</div>
+            <div class="goal-explanation">Moving from "writing code" to "solving problems." Building a startup is the ultimate test of leadership skills, allowing me to create a legacy that leaves a tangible impact on the industry.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-07">
+            <div class="goal-title"><span>07. VITAL LONGEVITY</span>Maintain a Healthy Body</div>
+            <div class="goal-explanation">A strong body fuels a sharp mind. Sustaining long hours of deep architectural design and programming requires the energy and resilience that only consistent wellness can provide.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-08">
+            <div class="goal-title"><span>08. ENTREPRENEURIAL VISION</span>Hybrid Coffee & Computer Cafe</div>
+            <div class="goal-explanation">Creating a "Third Space" for developers and creatives. This business will serve as a live laboratory for my own POS system developments, blending premium hospitality with high-end tech.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-09">
+            <div class="goal-title"><span>09. PERSONAL MILESTONE</span>Buy a Car by Age 28</div>
+            <div class="goal-explanation">A tangible marker of professional success and financial independence. It represents the mobility and freedom earned through years of disciplined coding and smart financial management.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-10">
+            <div class="goal-title"><span>10. PERSONAL AUTHORITY</span>Build a Personal Brand</div>
+            <div class="goal-explanation">In the digital economy, reputation is currency. Building authority as a thought leader—whether in Tokyo or Manila—ensures opportunities come to me, allowing me to influence the global tech landscape.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-11">
+            <div class="goal-title"><span>11. MENTAL DEBUGGING</span>Solo Travel for Reflection</div>
+            <div class="goal-explanation">Stepping away from the screen to reset in places like Batanes. Solo travel allows me to reflect on my progress, debug my personal goals, and return with a clearer vision.</div>
+        </div>
+
+        <div class="bucket-row" id="goal-12">
+            <div class="goal-title"><span>12. MARKET VALIDATION</span>Land High-Value Clients</div>
+            <div class="goal-explanation">The bridge between skill and lifestyle. Landing top-tier clients validates that my expertise in Cloud and Software Engineering is in high demand by the world's leading businesses.</div>
+        </div>
+
+    </div>
+</main>
+
+<div class="back-nav">
+    <a href="index.html" class="back-btn">← Back to Hub</a>
+</div>
+
+<footer>
+    © 2026 Jose Gabriel Yu | The Yu Files
+</footer>
+
+<a href="#top" class="sticky-top">↑</a>
+
+</body>
+</html>
