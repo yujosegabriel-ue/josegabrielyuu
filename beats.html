@@ -4,455 +4,416 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Collection | Jose Gabriel Yu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    background-color: #f4f1f8;
-    background-image: linear-gradient(#e0d7ee 1.5px, transparent 1.5px),
-                      linear-gradient(90deg, #e0d7ee 1.5px, transparent 1.5px);
-    background-size: 60px 60px;
-    color: #2d2d2d;
-    scroll-behavior: smooth;
-}
+    :root {
+        --deep-purple: #310062;
+        --accent-gold: #FFD700;
+        --soft-purple: #6a5aa3;
+        --blueprint-grid: #e0d7ee;
+    }
 
-/* ===== NAV ===== */
-.top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 2000;
-    background: white;
-    border-bottom: 3px solid #4B0082;
-    padding: 15px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    html { scroll-behavior: smooth; }
 
-.logo {
-    font-weight: 900;
-    color: #310062;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8f7ff;
+        background-image: 
+            radial-gradient(circle at top right, rgba(224, 215, 238, 0.5), transparent 40%),
+            linear-gradient(var(--blueprint-grid) 1.5px, transparent 1.5px),
+            linear-gradient(90deg, var(--blueprint-grid) 1.5px, transparent 1.5px);
+        background-size: 100% 100%, 60px 60px, 60px 60px;
+        color: #1a1a1a;
+        line-height: 1.6;
+    }
 
-.top-nav-links a {
-    text-decoration: none;
-    color: #310062;
-    font-weight: 800;
-    font-size: 11px;
-    text-transform: uppercase;
-    margin-left: 20px;
-    transition: 0.3s;
-}
+    /* --- NAVIGATION --- */
+    nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 30px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(75, 0, 130, 0.05);
+    }
 
-.top-nav-links a:hover { color: #FFD700; }
+    .nav-logo { font-weight: 800; color: var(--deep-purple); font-size: 22px; text-decoration: none; }
+    .nav-links a { text-decoration: none; color: #4a4a4a; font-weight: 600; font-size: 12px; margin-left: 20px; text-transform: uppercase; }
 
-/* ===== HERO HEADER ===== */
-.hero-header {
-    padding: 160px 10% 80px;
-    text-align: center;
-}
+    /* --- HERO --- */
+    header {
+        padding: 180px 8% 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+    }
 
-.hero-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
-    padding: 70px 50px;
-    border-radius: 50px;
-    display: inline-block;
-    border: 1px solid white;
-    box-shadow: 0 40px 80px rgba(75, 0, 130, 0.12);
-    max-width: 1000px;
-}
+    header h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(60px, 10vw, 110px);
+        line-height: 0.9;
+        margin: 0;
+        color: var(--deep-purple);
+    }
 
-.hero-header h1 {
-    font-size: clamp(60px, 12vw, 120px);
-    color: #310062;
-    margin: 0;
-    font-family: Georgia, serif;
-    letter-spacing: -4px;
-    line-height: 0.9;
-}
+    header p.subtitle {
+        margin: 20px 0;
+        color: var(--soft-purple);
+        font-weight: 800;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
 
-.subtitle {
-    font-size: 18px;
-    color: #4B0082;
-    margin: 25px 0 40px;
-    font-weight: 800;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-}
+    .intro-block {
+        max-width: 700px;
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 40px;
+    }
 
-.intro-text {
-    font-size: 20px;
-    line-height: 1.8;
-    color: #4B0082;
-    margin: 0 auto 40px;
-    max-width: 850px;
-    text-align: justify;
-}
+    /* --- QUICK NAV --- */
+    .quick-nav {
+        display: flex;
+        gap: 15px;
+        margin-top: 40px;
+    }
 
-/* ===== NAV BUTTONS ===== */
-.page-nav-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px; /* space between buttons */
-    flex-wrap: wrap;
-}
+    .quick-link {
+        background: var(--deep-purple);
+        color: white;
+        padding: 15px 35px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 12px;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
 
-.nav-item {
-    text-align: center; /* center description under button */
-}
+    .quick-link:hover { background: var(--accent-gold); color: var(--deep-purple); transform: translateY(-5px); }
 
-.nav-btn {
-    text-decoration: none;
-    background: #310062;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.4s;
-    box-shadow: 0 10px 20px rgba(49, 0, 98, 0.2);
-    border: 2px solid #310062;
-    display: inline-block;
-}
+    /* --- SECTION LAYOUT --- */
+    .section-wrapper {
+        max-width: 1200px;
+        margin: 0 auto 100px;
+        padding: 0 8%;
+    }
 
-.nav-btn:hover {
-    transform: translateY(-8px);
-    background: #FFD700;
-    color: #310062;
-}
+    .editorial-block {
+        display: grid;
+        grid-template-columns: 350px 1fr;
+        gap: 60px;
+        background: white;
+        padding: 60px;
+        border-radius: 40px;
+        border: 1px solid var(--blueprint-grid);
+        margin-bottom: 40px;
+        align-items: start;
+    }
 
-.nav-desc {
-    font-size: 12px;
-    color: #4B0082;
-    margin-top: 4px;
-}
+    .sticky-side {
+        position: sticky;
+        top: 100px;
+    }
 
-/* ===== MAIN CONTENT ===== */
-main {
-    max-width: 1250px;
-    margin: auto;
-    padding: 40px 5% 100px;
-}
+    .side-meta img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--blueprint-grid);
+        margin-bottom: 20px;
+    }
 
-.artist-section {
-    margin-top: 100px;
-    background: white;
-    border-radius: 40px;
-    padding: 60px;
-    border: 1px solid #e0d7ee;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-}
+    .side-meta h2 { font-family: "Instrument Serif", serif; font-size: 42px; color: var(--deep-purple); margin: 0; }
+    .side-meta p { font-size: 15px; color: #6a5aa3; line-height: 1.7; text-align: justify; }
 
-.section-label {
-    text-align: center;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: #FFD700;
-    margin-bottom: 40px;
-    background: #310062;
-    display: inline-block;
-    padding: 10px 30px;
-    border-radius: 50px;
-    font-size: 11px;
-}
+    /* --- CONTENT CARDS --- */
+    .content-flow { display: flex; flex-direction: column; gap: 30px; }
 
-.artist-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
+    .item-card {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 30px;
+        background: #fdfcff;
+        padding: 25px;
+        border-radius: 24px;
+        border: 1px solid #f0f0f5;
+        transition: 0.3s;
+    }
 
-.artist-header img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #310062;
-}
+    .item-card:hover { border-color: var(--deep-purple); transform: scale(1.02); }
 
-.artist-header p {
-    max-width: 750px;
-    margin: 20px auto 0;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #4B0082;
-    text-align: justify;
-}
+    .item-card img {
+        width: 180px;
+        height: 180px;
+        border-radius: 15px;
+        object-fit: cover;
+    }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
+    .item-card.cinema-card img { height: 260px; }
 
-.card {
-    background: #fbfaff;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding-bottom: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s;
-}
+    .item-info h3 { font-family: "Instrument Serif", serif; font-size: 28px; color: var(--deep-purple); margin: 0; }
+    .item-info .tag { font-size: 10px; font-weight: 800; color: var(--soft-purple); text-transform: uppercase; letter-spacing: 2px; display: block; margin: 5px 0 15px; }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
+    .vibe-text {
+        font-size: 14px;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        border-left: 4px solid var(--accent-gold);
+        color: #444;
+        margin-bottom: 15px;
+    }
 
-.card img {
-    width: 100%;
-    height: 320px;
-    object-fit: contain;
-    background: #f0f0f0;
-}
+    audio, iframe { width: 100%; border-radius: 8px; margin-top: 10px; }
 
-.poster-card img {
-    height: 480px;
-    object-fit: cover;
-}
+    /* --- FOOTER --- */
+    footer {
+        text-align: center;
+        padding: 80px;
+        background: var(--deep-purple);
+        color: white;
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        border-radius: 60px 60px 0 0;
+    }
 
-.card-body { padding: 25px; flex-grow: 1; }
-.card-body h3 { margin: 0; color: #310062; font-size: 22px; }
-.song-meta { font-size: 11px; font-weight: bold; color: #4B0082; display: block; margin: 8px 0; opacity: 0.7; }
-
-.vibe-box {
-    background: #f8f7fc;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #e0d7ee;
-    font-size: 14px;
-    margin: 15px 0;
-    line-height: 1.5;
-    color: #310062;
-}
-
-audio, iframe { width: 100%; border-radius: 10px; margin-top: 10px; }
-
-footer { text-align: center; padding: 40px; color: #4B0082; background: white; border-top: 1px solid #eee; }
+    @media (max-width: 1000px) {
+        .editorial-block { grid-template-columns: 1fr; padding: 30px; }
+        .item-card { grid-template-columns: 1fr; }
+        .item-card img { width: 100%; height: 200px; }
+    }
 </style>
 </head>
+
 <body>
 
-<!-- ===== NAV ===== -->
-<nav class="top-nav">
-    <div class="logo">JG</div>
-    <div class="top-nav-links">
+<nav>
+    <a href="index.html" class="nav-logo">JG</a>
+    <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="template.html">Portfolio</a>
-        <a href="projects.html">Projects</a>
-        <a href="Biography.html">Blogs</a>
+        <a href="blogs.html">Blogs</a>
         <a href="gallery.html">Gallery</a>
-        <a href="beats.html">Beats</a> 
+        <a href="beats.html">Beats</a>
+        <a href="dreamplaces.html">Dream Places</a>
+        <a href="bucketlist.html">Bucketlist</a>
         <a href="mailto:yu.josegabriel@ue.edu.ph">Contact</a>
     </div>
 </nav>
 
-<header class="hero-header" id="top">
-<div class="hero-card">
-<h1>The Collection</h1>
-<p class="subtitle">Soundtracks & Stories</p>
-<div class="intro-text">
-<p>Welcome to my digital gallery. Explore my definitive top picks across music, film, and television below. Each section offers insight into my personal favorites, with descriptions that explain why these selections hold special meaning.</p>
-</div>
-
-<!-- ===== CENTERED NAV BUTTONS WITH DESCRIPTIONS ===== -->
-<div class="page-nav-container">
-    <div class="nav-item">
-        <a href="#music" class="nav-btn">Music</a>
-        <div class="nav-desc">Discover my top songs and favorite artists</div>
+<header>
+    <p class="subtitle">Soundtracks & Stories</p>
+    <h1>The Collection</h1>
+    <div class="intro-block">
+        Welcome to my digital gallery. Explore my definitive top picks across music, film, and television below. Each section offers insight into my personal favorites, with descriptions that explain why these selections hold special meaning.
     </div>
-
-    <div class="nav-item">
-        <a href="#movies" class="nav-btn">Movies</a>
-        <div class="nav-desc">Explore films that inspire me</div>
+    
+    <div class="quick-nav">
+        <a href="#music" class="quick-link">Music</a>
+        <a href="#movies" class="quick-link">Movies</a>
+        <a href="#tv" class="quick-link">TV Shows</a>
     </div>
-
-    <div class="nav-item">
-        <a href="#tv" class="nav-btn">TV Shows</a>
-        <div class="nav-desc">Check out the series I love watching</div>
-    </div>
-</div>
-
-</div>
 </header>
 
 <main>
 
-<!-- ===== MUSIC ===== -->
-<section class="artist-section" id="music">
-    <center><span class="section-label">Top 5 Chris Brown</span></center>
-    <div class="artist-header">
-        <img src="chris-brown-portrait.jpg" alt="Chris Brown">
-        <p>Chris Brown’s versatility stands out the most to me. From R&B ballads to high-energy tracks, his ability to adapt to different genres and styles keeps his music engaging. Each song has a story, whether it's about love, heartbreak, or celebration, making his work deeply relatable yet entertaining.</p>
-    </div>
-    <div class="grid">
-        <div class="card">
-            <img src="residuals.jpg" alt="Residuals">
-            <div class="card-body">
-                <h3>Residuals</h3>
-                <span class="song-meta">11:11 | 2023 | R&B</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> This track immerses you in a calming, ambient soundscape with soft percussion and Chris’s smooth vocals. Perfect for reflecting at the end of a long day, it combines modern production with emotional depth, allowing listeners to feel both introspective and uplifted.</div>
-                <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
+    <div class="section-wrapper" id="music">
+        <div class="editorial-block">
+            <aside class="sticky-side side-meta">
+                <img src="chris-brown-portrait.jpg" alt="Chris Brown">
+                <h2>Chris Brown</h2>
+                <p>Chris Brown’s versatility stands out the most to me. From R&B ballads to high-energy tracks, his ability to adapt to different genres and styles keeps his music engaging. Each song has a story, whether it's about love, heartbreak, or celebration, making his work deeply relatable yet entertaining.</p>
+            </aside>
+            
+            <div class="content-flow">
+                <div class="item-card">
+                    <img src="residuals.jpg" alt="Residuals">
+                    <div class="item-info">
+                        <h3>Residuals</h3>
+                        <span class="tag">11:11 | 2023 | R&B</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track immerses you in a calming, ambient soundscape with soft percussion and Chris’s smooth vocals. Perfect for reflecting at the end of a long day, it combines modern production with emotional depth, allowing listeners to feel both introspective and uplifted.</div>
+                        <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="grassaintgreener.jpg" alt="Grass Ain't Greener">
-            <div class="card-body">
-                <h3>Grass Ain't Greener</h3>
-                <span class="song-meta">Heartbreak on a Full Moon | 2017</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Dark and moody, this track captures the feelings of jealousy, longing, and reflection. The layered production, with its echoing synths and steady beat, makes it hypnotic, while the lyrics are raw and relatable for anyone who's experienced complicated relationships.</div>
-                <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
+                <div class="item-card">
+                    <img src="grassaintgreener.jpg" alt="Grass Ain't Greener">
+                    <div class="item-info">
+                        <h3>Grass Ain't Greener</h3>
+                        <span class="tag">Heartbreak on a Full Moon | 2017</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Dark and moody, this track captures the feelings of jealousy, longing, and reflection. The layered production, with its echoing synths and steady beat, makes it hypnotic, while the lyrics are raw and relatable.</div>
+                        <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="wgftremix.jpg" alt="WGFT Remix">
-            <div class="card-body">
-                <h3>WGFT (Remix)</h3>
-                <span class="song-meta">R&B Collaboration</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> A high-energy remix blending smooth harmonies and catchy rhythms. The song’s dynamic flow and addictive hooks make it perfect for both chill listening and hyped-up moments. Chris’s vocal runs shine through, demonstrating his technical skill and versatility.</div>
-                <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
+                <div class="item-card">
+                    <img src="wgftremix.jpg" alt="WGFT Remix">
+                    <div class="item-info">
+                        <h3>WGFT (Remix)</h3>
+                        <span class="tag">R&B Collaboration</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A high-energy remix blending smooth harmonies and catchy rhythms. The song’s dynamic flow and addictive hooks make it perfect for both chill listening and hyped-up moments.</div>
+                        <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="gocrazy.jpg" alt="Go Crazy">
-            <div class="card-body">
-                <h3>Go Crazy</h3>
-                <span class="song-meta">Slime & B | 2020</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> This track radiates joy and energy. Its upbeat rhythm, playful lyrics, and vibrant instrumentation make it impossible not to move to. It’s the perfect song to lift your mood and get into a party-ready mindset, showcasing Chris’s ability to craft infectious tracks.</div>
-                <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
+                <div class="item-card">
+                    <img src="gocrazy.jpg" alt="Go Crazy">
+                    <div class="item-info">
+                        <h3>Go Crazy</h3>
+                        <span class="tag">Slime & B | 2020</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track radiates joy and energy. Its upbeat rhythm, playful lyrics, and vibrant instrumentation make it impossible not to move to. It’s the perfect song to lift your mood.</div>
+                        <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
 
-        <div class="card">
-            <img src="angelnumbers.jpg" alt="Angel Numbers">
-            <div class="card-body">
-                <h3>Angel Numbers</h3>
-                <span class="song-meta">11:11 | 2023</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Evocative and dreamy, this track feels like a journey. The intricate melodies, layered harmonies, and reflective lyrics combine to create a full emotional experience. It’s the type of song that stays with you, resonating long after you’ve stopped listening.</div>
-                <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== Drake ===== -->
-    <center><span class="section-label" style="margin-top:80px;">Top 5 Drake</span></center>
-    <div class="artist-header">
-        <img src="drake-portrait.jpg" alt="Drake">
-        <p>Drake’s music is an artful mix of introspection, clever wordplay, and catchy melodies. His storytelling captures universal experiences while feeling personal, and his evolution as an artist shows in the diversity of his tracks. These songs highlight his ability to craft memorable hooks, emotional depth, and beats that resonate with a wide audience.</p>
-    </div>
-    <div class="grid">
-        <div class="card">
-            <img src="timeflies.jpg" alt="Time Flies">
-            <div class="card-body">
-                <h3>Time Flies</h3>
-                <span class="song-meta">Dark Lane Demo Tapes | 2020</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Smooth, minimalist production paired with reflective lyrics make this track perfect for introspection. It has a calming yet moving energy, exploring time, relationships, and the fleeting nature of life. Drake’s flow balances effortlessly between rap and melodic storytelling.</div>
-                <audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="passionfruit.jpg" alt="Passionfruit">
-            <div class="card-body">
-                <h3>Passionfruit</h3>
-                <span class="song-meta">More Life | 2017</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> This track exudes a tropical, laid-back feel. Its melodic structure, soothing beats, and smooth vocals make it ideal for relaxing or reflecting on relationships. It’s endlessly replayable due to its calm energy and hypnotic rhythm.</div>
-                <audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="unforgettable.png" alt="Unforgettable">
-            <div class="card-body">
-                <h3>Unforgettable</h3>
-                <span class="song-meta">Thank Me Later | 2018</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> A nostalgic, rhythmic track that balances rap and melody. Drake’s vocals paired with the catchy beat create a song that is both memorable and emotionally resonant, perfect for reminiscing or uplifting moments.</div>
-                <audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="headlines.jpg" alt="Headlines">
-            <div class="card-body">
-                <h3>Headlines</h3>
-                <span class="song-meta">Take Care | 2011</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Confident, self-reflective, and memorable. The track is an anthem of personal growth and resilience, combining clever lyricism with an instantly recognizable beat that defines Drake’s early style.</div>
-                <audio controls><source src="headlines.mp3" type="audio/mpeg"></audio>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="bestthingieverhad.jpg" alt="Best Thing I Ever Had">
-            <div class="card-body">
-                <h3>Best Thing I Ever Had</h3>
-                <span class="song-meta">Thank Me Later | 2018</span>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Combines romantic storytelling with a smooth, catchy melody. The song reflects on love, appreciation, and moments of connection, showcasing Drake’s ability to make songs that resonate emotionally and musically.</div>
-                <audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio>
+                <div class="item-card">
+                    <img src="angelnumbers.jpg" alt="Angel Numbers">
+                    <div class="item-info">
+                        <h3>Angel Numbers</h3>
+                        <span class="tag">11:11 | 2023</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Evocative and dreamy, this track feels like a journey. The intricate melodies, layered harmonies, and reflective lyrics combine to create a full emotional experience.</div>
+                        <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- ===== MOVIES ===== -->
-<section class="artist-section" id="movies">
-    <center><span class="section-label">Cinema Selection</span></center>
-    <div class="grid">
-        <div class="card poster-card">
-            <img src="whipplash.jpg" alt="Whiplash">
-            <div class="card-body">
-                <h3>Whiplash</h3>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Whiplash is a gripping story of ambition, perfection, and obsession. The intense relationship between teacher and student challenges ethical boundaries and personal limits. Its dynamic cinematography, heart-pounding music sequences, and psychological depth create a cinematic experience that is unforgettable.</div>
-                <iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?start=89" allowfullscreen></iframe>
-            </div>
-        </div>
+    <div class="section-wrapper">
+        <div class="editorial-block">
+            <aside class="sticky-side side-meta">
+                <img src="drake-portrait.jpg" alt="Drake">
+                <h2>Drake</h2>
+                <p>Drake’s music is an artful mix of introspection, wordplay, and catchy melodies. His storytelling captures universal experiences while feeling personal, and his evolution as an artist shows in the diversity of his tracks. These songs highlight his ability to craft memorable hooks and beats.</p>
+            </aside>
+            
+            <div class="content-flow">
+                <div class="item-card">
+                    <img src="timeflies.jpg" alt="Time Flies">
+                    <div class="item-info">
+                        <h3>Time Flies</h3>
+                        <span class="tag">Dark Lane Demo Tapes | 2020</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Smooth, minimalist production paired with reflective lyrics make this track perfect for introspection. It has a calming yet moving energy, exploring time, relationships, and the fleeting nature of life.</div>
+                        <audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
 
-        <div class="card poster-card">
-            <img src="howtolose.jpg" alt="How to Lose a Guy in 10 Days">
-            <div class="card-body">
-                <h3>How to Lose a Guy in 10 Days</h3>
-                <div class="vibe-box"><strong>Why I Love It:</strong> This romantic comedy is a perfect balance of humor and charm. Watching the clever strategies unfold between the leads is entertaining, while the underlying romance keeps you invested. Its witty dialogue and situational comedy make it a timeless, feel-good movie.</div>
-                <iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?start=4" allowfullscreen></iframe>
+                <div class="item-card">
+                    <img src="passionfruit.jpg" alt="Passionfruit">
+                    <div class="item-info">
+                        <h3>Passionfruit</h3>
+                        <span class="tag">More Life | 2017</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track exudes a tropical, laid-back feel. Its melodic structure, soothing beats, and smooth vocals make it ideal for relaxing or reflecting on relationships.</div>
+                        <audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <img src="unforgettable.png" alt="Unforgettable">
+                    <div class="item-info">
+                        <h3>Unforgettable</h3>
+                        <span class="tag">Thank Me Later | 2018</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A nostalgic, rhythmic track that balances rap and melody. Drake’s vocals paired with the catchy beat create a song that is both memorable and emotionally resonant.</div>
+                        <audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <img src="headlines.jpg" alt="Headlines">
+                    <div class="item-info">
+                        <h3>Headlines</h3>
+                        <span class="tag">Take Care | 2011</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Confident, self-reflective, and memorable. The track is an anthem of personal growth and resilience, combining clever lyricism with an instantly recognizable beat.</div>
+                        <audio controls><source src="headlines.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <img src="bestthingieverhad.jpg" alt="Best I Ever Had">
+                    <div class="item-info">
+                        <h3>Best I Ever Had</h3>
+                        <span class="tag">Thank Me Later | 2018</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Combines romantic storytelling with a smooth, catchy melody. The song reflects on love, appreciation, and moments of connection.</div>
+                        <audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- ===== TV SHOWS ===== -->
-<section class="artist-section" id="tv">
-    <center><span class="section-label">TV Shows</span></center>
-    <div class="grid">
-        <div class="card poster-card">
-            <img src="b99.jpg" alt="Brooklyn Nine-Nine">
-            <div class="card-body">
-                <h3>Brooklyn Nine-Nine</h3>
-                <div class="vibe-box"><strong>Why I Love It:</strong> A smart comedy blending humor with meaningful moments. Each character is distinct and memorable, and the series consistently balances slapstick comedy with heartfelt storylines about teamwork, loyalty, and friendship. Its clever writing and strong ensemble cast make it endlessly rewatchable.</div>
-                <iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?start=4" allowfullscreen></iframe>
-            </div>
-        </div>
+    <div class="section-wrapper" id="movies">
+        <div class="editorial-block" style="grid-template-columns: 1fr;">
+            <h2 style="font-family:'Instrument Serif', serif; font-size: 60px; color:var(--deep-purple); text-align:center;">Cinema & Series</h2>
+            
+            <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap:30px;">
+                <div class="item-card cinema-card">
+                    <img src="whipplash.jpg" alt="Whiplash">
+                    <div class="item-info">
+                        <h3>Whiplash</h3>
+                        <span class="tag">Film • Drama</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A gripping story of ambition and perfection. Its dynamic cinematography and heart-pounding music sequences create a cinematic experience that is unforgettable.</div>
+                        <iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?start=89" allowfullscreen></iframe>
+                    </div>
+                </div>
 
-        <div class="card poster-card">
-            <img src="himym.jpg" alt="How I Met Your Mother">
-            <div class="card-body">
-                <h3>How I Met Your Mother</h3>
-                <div class="vibe-box"><strong>Why I Love It:</strong> Balances humor, emotional depth, and character-driven storytelling. Following Ted’s journey to find love, the series explores friendship, life lessons, and personal growth. Its clever twists, running gags, and emotional payoff make it one of the most enduring sitcoms of its time.</div>
-                <iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o" allowfullscreen></iframe>
+                <div class="item-card cinema-card">
+                    <img src="howtolose.jpg" alt="How to Lose a Guy">
+                    <div class="item-info">
+                        <h3>How to Lose a Guy in 10 Days</h3>
+                        <span class="tag">Film • Rom-Com</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A perfect balance of humor and charm. Its witty dialogue and situational comedy make it a timeless, feel-good movie.</div>
+                        <iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?start=4" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div id="tv" class="item-card cinema-card">
+                    <img src="b99.jpg" alt="Brooklyn Nine-Nine">
+                    <div class="item-info">
+                        <h3>Brooklyn Nine-Nine</h3>
+                        <span class="tag">TV • Comedy</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A smart comedy blending humor with meaningful moments. Its clever writing and strong ensemble cast make it endlessly rewatchable.</div>
+                        <iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?start=4" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="item-card cinema-card">
+                    <img src="himym.jpg" alt="HIMYM">
+                    <div class="item-info">
+                        <h3>How I Met Your Mother</h3>
+                        <span class="tag">TV • Comedy/Drama</span>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Balances humor and emotional depth. Its clever twists, running gags, and emotional payoff make it one of the most enduring sitcoms.</div>
+                        <iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
 </main>
 
-<footer>© 2026 Jose Gabriel Yu | The Yu Files</footer>
+<footer>
+    © 2026 Jose Gabriel Yu | The Yu Files • Crafted in Manila
+</footer>
+
 </body>
 </html>
