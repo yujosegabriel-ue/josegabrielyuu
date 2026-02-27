@@ -13,13 +13,10 @@
         margin: 0;
         padding: 0;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        /* Re-integrated background: Grid + Radial Gradients */
         background-color: #f8f7ff;
         background-image: 
-            /* Subtle Radial Glows */
             radial-gradient(circle at top right, rgba(224, 215, 238, 0.5), transparent 40%),
             radial-gradient(circle at bottom left, rgba(244, 241, 248, 0.5), transparent 40%),
-            /* The 60px Blue/Purple Grid */
             linear-gradient(#e0d7ee 1.5px, transparent 1.5px),
             linear-gradient(90deg, #e0d7ee 1.5px, transparent 1.5px);
         background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
@@ -28,7 +25,7 @@
         scroll-behavior: smooth;
     }
 
-    /* --- SLEEK FLOATING NAVIGATION --- */
+    /* Restored & Enhanced Nav Hover */
     nav {
         position: fixed;
         top: 20px;
@@ -69,7 +66,7 @@
         transition: 0.3s ease;
     }
 
-    /* Sliding Underline Hover Effect */
+    /* Restored Underline Animation */
     .nav-links a::after {
         content: '';
         position: absolute;
@@ -85,7 +82,6 @@
     .nav-links a:hover { color: #310062; }
     .nav-links a:hover::after { width: 20px; }
 
-    /* --- HERO SECTION --- */
     .hero {
         min-height: 90vh;
         display: flex;
@@ -95,8 +91,6 @@
         text-align: center;
     }
 
-    .hero-content { max-width: 800px; }
-
     .hero-content h1 {
         font-family: 'Instrument Serif', serif;
         font-size: clamp(60px, 10vw, 110px);
@@ -104,14 +98,6 @@
         margin: 0;
         line-height: 1;
         letter-spacing: -2px;
-    }
-
-    .hero-content p {
-        font-size: 20px;
-        color: #5a5a5a;
-        margin: 30px auto;
-        max-width: 600px;
-        font-weight: 500;
     }
 
     .hero-img {
@@ -124,9 +110,8 @@
         box-shadow: 0 15px 35px rgba(49, 0, 98, 0.1);
     }
 
-    /* --- MINIMALIST SECTIONS --- */
     .section {
-        padding: 100px 8%;
+        padding: 80px 8%;
         max-width: 1200px;
         margin: 0 auto;
     }
@@ -139,7 +124,50 @@
         text-align: center;
     }
 
-    /* Card Designs - White base to pop against grid */
+    /* Unified Card for About Me */
+    .unified-about-card {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding: 50px;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        border-radius: 40px;
+        border: 1px solid #e0d7ee;
+        box-shadow: 0 20px 50px rgba(49, 0, 98, 0.05);
+        transition: 0.4s ease;
+    }
+
+    .unified-about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(49, 0, 98, 0.08);
+    }
+
+    .about-text-content { flex: 1; }
+    .about-text-content h3 { font-family: 'Instrument Serif', serif; font-size: 38px; color: #310062; margin-top: 0; }
+    .about-text-content p { font-size: 19px; line-height: 1.8; color: #4a4a4a; }
+
+    .about-video-container { flex: 0 0 320px; }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 177.77%; /* 9:16 Portrait */
+        border-radius: 24px;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 15px 35px rgba(49, 0, 98, 0.15);
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -166,52 +194,6 @@
         box-shadow: 0 30px 60px rgba(49, 0, 98, 0.08);
     }
 
-    .glass-card h3 {
-        font-size: 26px;
-        color: #310062;
-        margin: 0 0 15px 0;
-        font-family: 'Instrument Serif', serif;
-    }
-
-    /* --- CONTACT FOOTER --- */
-    .contact-footer {
-        background: #310062;
-        border-radius: 60px 60px 0 0;
-        padding: 120px 8% 40px;
-        color: white;
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .contact-footer h2 {
-        font-family: 'Instrument Serif', serif;
-        font-size: clamp(50px, 8vw, 80px);
-        margin-bottom: 24px;
-    }
-
-    .email-link {
-        font-size: 24px;
-        color: #FFD700;
-        text-decoration: none;
-        font-weight: 700;
-        position: relative;
-        transition: 0.3s;
-    }
-
-    .email-link::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background: #FFD700;
-        transform: scaleX(0);
-        transition: 0.3s;
-    }
-
-    .email-link:hover::after { transform: scaleX(1); }
-
     .btn-primary {
         background: #FFD700;
         color: #310062;
@@ -220,32 +202,38 @@
         text-decoration: none;
         font-weight: 800;
         display: inline-block;
-        margin-top: 40px;
+        margin-top: 30px;
         transition: 0.3s;
         text-transform: uppercase;
         font-size: 14px;
-        letter-spacing: 1px;
     }
 
-    .btn-primary:hover { 
-        transform: scale(1.05) translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .btn-primary:hover { transform: scale(1.05); }
+
+    .email-link {
+        font-size: 18px;
+        color: #310062;
+        text-decoration: none;
+        font-weight: 700;
+        border-bottom: 2px solid #FFD700;
+        transition: 0.3s;
     }
 
-    footer {
-        padding: 60px 40px 20px;
-        font-size: 11px;
-        opacity: 0.5;
-        text-transform: uppercase;
-        letter-spacing: 3px;
+    .email-link:hover { opacity: 0.7; }
+
+    .contact-footer {
+        background: #310062;
+        border-radius: 60px 60px 0 0;
+        padding: 100px 8% 40px;
         color: white;
+        text-align: center;
+        margin-top: 80px;
     }
 
-    @media (max-width: 768px) {
-        nav { padding: 10px 20px; width: 92%; }
+    @media (max-width: 900px) {
+        .unified-about-card { flex-direction: column; padding: 30px; text-align: center; }
+        .about-video-container { width: 100%; max-width: 280px; margin: 0 auto; }
         .nav-links { display: none; }
-        .hero { padding-top: 160px; }
-        .hero-img { width: 130px; height: 130px; }
     }
 </style>
 </head>
@@ -268,53 +256,68 @@
     <div class="hero-content">
         <img src="main-page.jpg" alt="Jose Gabriel Yu" class="hero-img">
         <h1>Jose Gabriel Yu</h1>
-        <p>Rules? Optional. Fun? Non-negotiable. I create digital experiences that feel brand new constantly pushing boundaries while learning with every project.</p>
-        <a href="#about" class="btn-primary">Explore My Journey</a>
+        <p>Rules? Optional. Fun? Non-negotiable. I create digital experiences that feel brand new.</p>
+        <a href="#about-me" class="btn-primary">Explore My Journey</a>
     </div>
 </section>
 
-<div class="section" id="about">
-    <h2 class="section-title">The Biography</h2>
-    <div class="glass-card" style="max-width: 850px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 19px; line-height: 1.9; color: #333;">
-            Passionate about building intuitive, scalable, and user-focused applications. I find inspiration in complex systems, esports leadership, and the intersection of tech and culture.
-        </p>
-        <div style="margin-top: 25px;">
-            <a href="biography.html" class="email-link" style="color: #310062; font-size: 17px;">Read Full Biography →</a>
+<div class="section" id="about-me">
+    <h2 class="section-title">About Me</h2>
+    
+    <div class="unified-about-card">
+        <div class="about-text-content">
+            <h3>Beyond the Code</h3>
+            <p>
+                I’m an IT student at UE who finds a common thread between a clean line of code, a perfect break in billiards, and a high-stakes Mobile Legends rotation. For me, tech isn't just about syntax; it’s about the same calculated precision you need to sink a difficult shot or secure a Lord steal.
+            </p>
+            <p>
+                I love to explore and try all things in life—whether it’s architecting a new system or exploring a new hobby—driven by strategy, focus, and the constant pursuit of a better game.
+            </p> 
+            <a href="education.html" class="email-link">Education Background</a>
+        </div>
+
+        <div class="about-video-container">
+            <div class="video-wrapper">
+                <video controls poster="about-poster.jpg">
+                    <source src="main_page.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="section" id="blog">
-    <h2 class="section-title">Latest Writing</h2>
+<div class="section" id="pages">
+    <h2 class="section-title">Explore My Pages</h2>
     <div class="grid">
-        <a href="part3.html" class="glass-card">
-            <h3>Cloud Solutions</h3>
-            <p>Designing scalable cloud infrastructure for modern deployments and high-availability systems.</p>
+        <a href="blogs.html" class="glass-card">
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #310062;">Blogs</h3>
+            <p>Thoughts and reflections on tech and growth.</p>
         </a>
         <a href="gallery.html" class="glass-card">
-            <h3>Creative Gallery</h3>
-            <p>Visual storytelling and design experiments captured through the lens of a developer.</p>
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #310062;">Gallery</h3>
+            <p>Moments captured through my lens.</p>
         </a>
         <a href="beats.html" class="glass-card">
-            <h3>Audio Beats</h3>
-            <p>Exploring the rhythm of code and engineering through native audio and sound design.</p>
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #310062;">Beats</h3>
+            <p>Audio experiments and creative rhythms.</p>
+        </a>
+        <a href="dreamplaces.html" class="glass-card">
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #310062;">Dream Places</h3>
+            <p>Locations I'm aiming to explore in 2026.</p>
         </a>
     </div>
 </div>
 
 <section class="contact-footer" id="contact">
     <h2>Let’s Connect</h2>
-    <p style="font-size: 18px; opacity: 0.9;">Available for internships & collaborations starting 2026.</p>
-    <a href="mailto:yu.josegabriel@ue.edu.ph" class="email-link">yu.josegabriel@ue.edu.ph</a>
-    <br>
-    <div style="display: flex; justify-content: center; gap: 20px;">
+    <a href="mailto:yu.josegabriel@ue.edu.ph" class="email-link" style="color: #FFD700; font-size: 24px; border: none;">yu.josegabriel@ue.edu.ph</a>
+    <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
         <a href="https://github.com/yujosegabriel-ue" class="btn-primary">GitHub Profile</a>
         <a href="https://instagram.com/mangjose.05" class="btn-primary" style="background: white; color: #310062;">Instagram</a>
     </div>
-    
-    <footer>
-        © 2026 Jose Gabriel Yu • Crafted in Manila • With Love from Masbate
+    <footer style="margin-top: 60px; font-size: 11px; opacity: 0.5; letter-spacing: 2px;">
+        © 2026 JOSE GABRIEL YU • CRAFTED IN MANILA • WITH LOVE FROM MASBATE
     </footer>
 </section>
 
