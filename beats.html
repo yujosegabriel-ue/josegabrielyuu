@@ -32,7 +32,7 @@
         line-height: 1.6;
     }
 
-    /* --- NAVIGATION --- */
+    /* --- NAVIGATION (Unified with Index) --- */
     nav {
         position: fixed;
         top: 20px;
@@ -41,7 +41,7 @@
         width: 90%;
         max-width: 1200px;
         z-index: 2000;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.3);
@@ -53,8 +53,40 @@
         box-shadow: 0 10px 30px rgba(75, 0, 130, 0.05);
     }
 
-    .nav-logo { font-weight: 800; color: var(--deep-purple); font-size: 22px; text-decoration: none; }
-    .nav-links a { text-decoration: none; color: #4a4a4a; font-weight: 600; font-size: 12px; margin-left: 20px; text-transform: uppercase; }
+    .nav-logo { 
+        font-weight: 800; 
+        color: var(--deep-purple); 
+        font-size: 22px; 
+        text-decoration: none; 
+        letter-spacing: -1px;
+    }
+
+    .nav-links { display: flex; gap: 5px; }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #4a4a4a;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 10px 18px;
+        position: relative;
+        transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gold);
+        transition: 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-links a:hover { color: var(--deep-purple); }
+    .nav-links a:hover::after { width: 20px; }
 
     /* --- HERO --- */
     header {
@@ -202,6 +234,7 @@
         .editorial-block { grid-template-columns: 1fr; padding: 30px; }
         .item-card { grid-template-columns: 1fr; }
         .item-card img { width: 100%; height: 200px; }
+        .nav-links { display: none; }
     }
 </style>
 </head>
@@ -251,7 +284,7 @@
                     <div class="item-info">
                         <h3>Residuals</h3>
                         <span class="tag">11:11 | 2023 | R&B</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> This track immerses you in a calming, ambient soundscape with soft percussion and Chris’s smooth vocals. Perfect for reflecting at the end of a long day, it combines modern production with emotional depth, allowing listeners to feel both introspective and uplifted.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track immerses you in a calming, ambient soundscape with soft percussion and Chris’s smooth vocals. Perfect for reflecting at the end of a long day.</div>
                         <audio controls><source src="residuals.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -261,7 +294,7 @@
                     <div class="item-info">
                         <h3>Grass Ain't Greener</h3>
                         <span class="tag">Heartbreak on a Full Moon | 2017</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Dark and moody, this track captures the feelings of jealousy, longing, and reflection. The layered production, with its echoing synths and steady beat, makes it hypnotic, while the lyrics are raw and relatable.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Dark and moody, this track captures the feelings of jealousy and reflection. The layered production makes it hypnotic.</div>
                         <audio controls><source src="grassaintgreener.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -271,7 +304,7 @@
                     <div class="item-info">
                         <h3>WGFT (Remix)</h3>
                         <span class="tag">R&B Collaboration</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> A high-energy remix blending smooth harmonies and catchy rhythms. The song’s dynamic flow and addictive hooks make it perfect for both chill listening and hyped-up moments.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A high-energy remix blending smooth harmonies and catchy rhythms. Perfect for both chill listening and hyped-up moments.</div>
                         <audio controls><source src="wgftremix.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -281,7 +314,7 @@
                     <div class="item-info">
                         <h3>Go Crazy</h3>
                         <span class="tag">Slime & B | 2020</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> This track radiates joy and energy. Its upbeat rhythm, playful lyrics, and vibrant instrumentation make it impossible not to move to. It’s the perfect song to lift your mood.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track radiates joy and energy. Its upbeat rhythm and vibrant instrumentation make it impossible not to move to.</div>
                         <audio controls><source src="gocrazy.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -291,7 +324,7 @@
                     <div class="item-info">
                         <h3>Angel Numbers</h3>
                         <span class="tag">11:11 | 2023</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Evocative and dreamy, this track feels like a journey. The intricate melodies, layered harmonies, and reflective lyrics combine to create a full emotional experience.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Evocative and dreamy, this track feels like a journey. The intricate melodies create a full emotional experience.</div>
                         <audio controls><source src="angelnumbers.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -304,7 +337,7 @@
             <aside class="sticky-side side-meta">
                 <img src="drake-portrait.jpg" alt="Drake">
                 <h2>Drake</h2>
-                <p>Drake’s music is an artful mix of introspection, wordplay, and catchy melodies. His storytelling captures universal experiences while feeling personal, and his evolution as an artist shows in the diversity of his tracks. These songs highlight his ability to craft memorable hooks and beats.</p>
+                <p>Drake’s music is an artful mix of introspection, wordplay, and catchy melodies. His storytelling captures universal experiences while feeling personal, highlighting his ability to craft memorable hooks.</p>
             </aside>
             
             <div class="content-flow">
@@ -313,7 +346,7 @@
                     <div class="item-info">
                         <h3>Time Flies</h3>
                         <span class="tag">Dark Lane Demo Tapes | 2020</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Smooth, minimalist production paired with reflective lyrics make this track perfect for introspection. It has a calming yet moving energy, exploring time, relationships, and the fleeting nature of life.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Smooth, minimalist production paired with reflective lyrics make this track perfect for introspection.</div>
                         <audio controls><source src="timeflies.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -323,7 +356,7 @@
                     <div class="item-info">
                         <h3>Passionfruit</h3>
                         <span class="tag">More Life | 2017</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> This track exudes a tropical, laid-back feel. Its melodic structure, soothing beats, and smooth vocals make it ideal for relaxing or reflecting on relationships.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> This track exudes a tropical, laid-back feel. Its melodic structure and smooth vocals make it ideal for relaxing.</div>
                         <audio controls><source src="passionfruit.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -333,7 +366,7 @@
                     <div class="item-info">
                         <h3>Unforgettable</h3>
                         <span class="tag">Thank Me Later | 2018</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> A nostalgic, rhythmic track that balances rap and melody. Drake’s vocals paired with the catchy beat create a song that is both memorable and emotionally resonant.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A nostalgic, rhythmic track that balances rap and melody. It is both memorable and emotionally resonant.</div>
                         <audio controls><source src="unforgettable.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -343,7 +376,7 @@
                     <div class="item-info">
                         <h3>Headlines</h3>
                         <span class="tag">Take Care | 2011</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Confident, self-reflective, and memorable. The track is an anthem of personal growth and resilience, combining clever lyricism with an instantly recognizable beat.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Confident and self-reflective. The track is an anthem of personal growth and resilience.</div>
                         <audio controls><source src="headlines.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -353,7 +386,7 @@
                     <div class="item-info">
                         <h3>Best I Ever Had</h3>
                         <span class="tag">Thank Me Later | 2018</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Combines romantic storytelling with a smooth, catchy melody. The song reflects on love, appreciation, and moments of connection.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Combines romantic storytelling with a smooth, catchy melody. A classic reflection on connection.</div>
                         <audio controls><source src="bestthingieverhad.mp3" type="audio/mpeg"></audio>
                     </div>
                 </div>
@@ -371,7 +404,7 @@
                     <div class="item-info">
                         <h3>Whiplash</h3>
                         <span class="tag">Film • Drama</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> A gripping story of ambition and perfection. Its dynamic cinematography and heart-pounding music sequences create a cinematic experience that is unforgettable.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A gripping story of ambition. Its heart-pounding music sequences create an unforgettable experience.</div>
                         <iframe height="200" src="https://www.youtube.com/embed/b9ilXLsz0KE?start=89" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -381,7 +414,7 @@
                     <div class="item-info">
                         <h3>How to Lose a Guy in 10 Days</h3>
                         <span class="tag">Film • Rom-Com</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> A perfect balance of humor and charm. Its witty dialogue and situational comedy make it a timeless, feel-good movie.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A perfect balance of humor and charm. A timeless, feel-good movie.</div>
                         <iframe height="200" src="https://www.youtube.com/embed/xN2JhLUbuiE?start=4" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -391,7 +424,7 @@
                     <div class="item-info">
                         <h3>Brooklyn Nine-Nine</h3>
                         <span class="tag">TV • Comedy</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> A smart comedy blending humor with meaningful moments. Its clever writing and strong ensemble cast make it endlessly rewatchable.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> A smart comedy blending humor with meaningful moments. Endlessly rewatchable.</div>
                         <iframe height="200" src="https://www.youtube.com/embed/fST4ssYSpJs?start=4" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -401,7 +434,7 @@
                     <div class="item-info">
                         <h3>How I Met Your Mother</h3>
                         <span class="tag">TV • Comedy/Drama</span>
-                        <div class="vibe-text"><strong>Why I Love It:</strong> Balances humor and emotional depth. Its clever twists, running gags, and emotional payoff make it one of the most enduring sitcoms.</div>
+                        <div class="vibe-text"><strong>Why I Love It:</strong> Balances humor and emotional depth with clever running gags and emotional payoff.</div>
                         <iframe height="200" src="https://www.youtube.com/embed/y2dzp2Ccb-o" allowfullscreen></iframe>
                     </div>
                 </div>
